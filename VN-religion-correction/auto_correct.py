@@ -1,6 +1,6 @@
 import os
-from collections import defaultdict
 from String_distance import StringDistance, extract_digit
+
 
 class ReligionCorrection:
     """Correct Religion based on input by comparing Levenshtein distance to
