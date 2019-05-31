@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2208ee3d-2be9-4736-8aa7-c18dd7816ef9" name="Default Changelist" comment="" />
+    <list default="true" id="2208ee3d-2be9-4736-8aa7-c18dd7816ef9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto_correct.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,15 +16,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/String_distance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408" />
+            <state relative-caret-position="-313" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auto_correct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+            <state relative-caret-position="116">
+              <caret line="45" column="93" selection-start-line="45" selection-start-column="93" selection-end-line="45" selection-end-column="93" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -123,13 +126,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/String_distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
+        <state relative-caret-position="-313" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auto_correct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        <state relative-caret-position="116">
+          <caret line="45" column="93" selection-start-line="45" selection-start-column="93" selection-end-line="45" selection-end-column="93" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
