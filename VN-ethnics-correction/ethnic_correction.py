@@ -2,27 +2,27 @@ import os
 from String_distance import StringDistance, extract_digit
 
 
-class ReligionCorrection:
-    """Correct Religion based on input by comparing Levenshtein distance to
+class EthnicCorrection:
+    """Correct Ethnics based on input by comparing Levenshtein distance to
     tongiao.txt
     """
 
-    def __init__(self, cost_dict_path=None, religion_path=None):
+    def __init__(self, cost_dict_path=None, ethnic_path=None):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         if cost_dict_path is None:
             cost_dict_path = os.path.join(dir_path, 'data', 'cost_char_dict.txt')
-        if religion_path is None:
-            religion_path = os.path.join(dir_path, 'data', 'tongiao.txt')
+        if ethnic_path is None:
+            ethnic_path = os.path.join(dir_path, 'data', 'dantoc.txt')
         self.string_distance = StringDistance(cost_dict_path=cost_dict_path)
-        self.religions = []
-        with open(religion_path, 'r', encoding='utf-8') as f:
+        self.ethnics = []
+        with open(ethnic_path, 'r', encoding='utf-8') as f:
             for line in f:
                 entity = line.strip()
                 if not entity:
                     break
                 entity = entity.split('\n')
-                self.religions.extend(entity)
-        self.religions = tuple(set(self.religions))
+                self.ethnics.extend(entity)
+        self.ethnics = tuple(set(self.ethnics))
 
     def correct(self, phrase, correct_phrases, nb_candidates=2, distance_threshold=40):
         candidates = [(None, distance_threshold)] * nb_candidates
@@ -39,17 +39,17 @@ class ReligionCorrection:
                 candidates.sort(key=lambda x: x[1])
         return candidates
 
-    def religion_correction(self, religion):
-        if not isinstance(religion, str):
+    def ethnic_correction(self, ethnic):
+        if not isinstance(ethnic, str):
             raise ValueError('Address must be a string')
-        religion = religion.replace('.', ' ').replace('-', ' ')
-        distance_th = len(religion.split(" ")) * 17
-        result = self.correct(religion, self.religions, nb_candidates=1, distance_threshold=distance_th)
+        ethnic = ethnic.replace('.', ' ').replace('-', ' ')
+        result = self.correct(ethnic, self.ethnics, nb_candidates=1, distance_threshold=25)
         if len(result) != 0:
             if result[0][0] is not None:
                 return result[0][0], result[0][1]
             else:
-                return religion, -1
+                return ethnic, -1
         else:
-            return religion, -1
+            return ethnic, -1
+
 
