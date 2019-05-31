@@ -42,8 +42,11 @@ class EthnicCorrection:
     def ethnic_correction(self, ethnic):
         if not isinstance(ethnic, str):
             raise ValueError('Address must be a string')
-        ethnic = ethnic.replace('.', ' ').replace('-', ' ')
-        result = self.correct(ethnic, self.ethnics, nb_candidates=1, distance_threshold=25)
+        if len(ethnic) < 8:
+            distance_th = 30
+        else:
+            distance_th = 40
+        result = self.correct(ethnic, self.ethnics, nb_candidates=1, distance_threshold=distance_th)
         if len(result) != 0:
             if result[0][0] is not None:
                 return result[0][0], result[0][1]
