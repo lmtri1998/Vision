@@ -1,5 +1,5 @@
 import os
-from String_distance import StringDistance, extract_digit
+from utils import StringDistance, extract_digit
 
 
 class GenderCorrection:
@@ -7,12 +7,12 @@ class GenderCorrection:
     tongiao.txt
     """
 
-    def __init__(self, cost_dict_path=None, gender_path=None):
+    def __init__(self, cost_dict_path=None, gender_path = None):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         if cost_dict_path is None:
             cost_dict_path = os.path.join(dir_path, 'data', 'cost_char_dict.txt')
         if gender_path is None:
-            gender_path = os.path.join(dir_path, 'data', 'tongiao.txt')
+            gender_path = os.path.join(dir_path, 'data', 'gioitinh.txt')
         self.string_distance = StringDistance(cost_dict_path=cost_dict_path)
         self.genders = []
         with open(gender_path, 'r', encoding='utf-8') as f:
@@ -23,6 +23,7 @@ class GenderCorrection:
                 entity = entity.split('\n')
                 self.genders.extend(entity)
         self.genders = tuple(set(self.genders))
+
 
     def correct(self, phrase, correct_phrases, nb_candidates=2, distance_threshold=40):
         candidates = [(None, distance_threshold)] * nb_candidates
@@ -41,15 +42,15 @@ class GenderCorrection:
 
     def gender_correction(self, gender):
         if not isinstance(gender, str):
-            raise ValueError('Address must be a string')
-        gender = gender.replace('.', ' ').replace('-', ' ')
-        distance_th = 5
-        result = self.correct(gender, self.genders, nb_candidates=1, distance_threshold=distance_th)
+            raise ValueError("Only Str Input")
+        gender = gender.replace('.', ' ')
+        result = self.correct(gender, self.genders, nb_candidates=1, distance_threshold=20)
         if len(result) != 0:
-            if result[0][0] is not None:
-                return result[0][0], result[0][1]
-            else:
-                return gender, -1
+            return result[0][0], result[0][1]
         else:
             return gender, -1
 
+
+if __name__ == '__main__':
+    a = GenderCorrection()
+    print(a.gender_correction("nú"))
